@@ -1,0 +1,15 @@
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 60px;
+
+  h1 {
+    font-size: 5rem;
+    color:  var(--orange);
+  }
+
+  img {
+    max-width: 500px;
+  }
+}
