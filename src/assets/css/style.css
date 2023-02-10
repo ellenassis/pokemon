@@ -2,18 +2,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: var(--beige);
-  color: var(--dark-gray);
 }
 
 :root {
   --white: #fff;
   --beige: #fae3c1;
   --dark-gray: #4f4f4f;
+  --orange : #c66713;
 }
 
 body {
   font-family: "Poppins", sans-serif;
+  background: var(--beige);
+  color: var(--dark-gray);
+}
+
+.main-container {
   max-width: 1300px;
   padding: 0 2%;
   margin: 0 auto;
