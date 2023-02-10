@@ -2,8 +2,8 @@
   --white: #fff;
   --beige: #fae3c1;
   --dark-gray: #4f4f4f;
-  --orange: #c66713;
-  --aqua: #bfdfde;
+  --red: #e92929;
+  --light-red: rgb(255, 147, 147);
 }
 
 * {
@@ -23,22 +23,13 @@ textarea,
 button {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+  font-size: 1rem;
 }
 
 .main-container {
   max-width: 1300px;
   padding: 0 2%;
   margin: 0 auto;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong {
-  font-weight: 600;
 }
 
 button {
