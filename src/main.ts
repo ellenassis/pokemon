@@ -8,7 +8,7 @@ import router from "./router";
 import "./assets/css/style.css";
 import "./sass/style.scss";
 
-import vuetify from './plugins/vuetify';
+import vuetify from "./plugins/vuetify";
 
 const app = createApp(App);
 

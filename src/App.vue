@@ -1,5 +1,5 @@
 <template>
-  <v-app style="background-color:var(--beige)">
+  <v-app style="background-color: var(--beige)">
     <Home />
   </v-app>
 </template>

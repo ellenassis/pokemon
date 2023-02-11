@@ -7,8 +7,8 @@ interface Pokemon {
   sprites: {
     front_default: string;
   };
-  stats?: any
-  abilities?: any
+  stats?: any;
+  abilities?: any;
 }
 
 interface State {
@@ -29,7 +29,6 @@ export const usePokemonStore = defineStore("pokemon", {
       const { data: evolution } = await axios.get(species.evolution_chain.url);
 
       this.getPokemonsByChains([evolution.chain]);
-      console.log(evolution.chain);
     },
     async getPokemonsByChains(chains: any) {
       if (chains.length === 0) return;

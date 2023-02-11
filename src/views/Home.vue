@@ -15,11 +15,11 @@ import PokemonList from "@/components/PokemonList.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'Home',
+  name: "Home",
   components: {
     Hero,
     SearchPokemon,
-    PokemonList
+    PokemonList,
   },
 });
 </script>
