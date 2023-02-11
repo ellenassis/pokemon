@@ -2,7 +2,10 @@
   <div>
     <main class="main-container">
       <Hero />
-      <SearchPokemon />
+      <SearchPokemon @onError="onSearchError" @onSuccess="onSearchSuccess" />
+      <div v-if="searchError"> 
+        <p class="errorMsg">Pokémon não encontrado.</p>
+      </div>
       <PokemonList />
     </main>
   </div>
@@ -21,5 +24,18 @@ export default defineComponent({
     SearchPokemon,
     PokemonList,
   },
+  data() {
+    return {
+      searchError: false
+    }
+  },
+  methods: {
+    onSearchError() {
+      this.searchError = true;
+    },
+    onSearchSuccess() {
+      this.searchError = false;
+    }
+  }
 });
 </script>

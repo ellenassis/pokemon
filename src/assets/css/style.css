@@ -32,6 +32,12 @@ button {
   margin: 0 auto;
 }
 
+.errorMsg {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.5rem;
+}
+
 button {
   cursor: pointer;
   font-size: 1rem;

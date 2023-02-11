@@ -40,8 +40,7 @@ export const usePokemonStore = defineStore("pokemon", {
       const query = specieName.toLowerCase();
       const { data: species } = await axios.get(
         `https://pokeapi.co/api/v2/pokemon-species/${query}`
-      );
-
+      )
       const { data: evolution } = await axios.get(species.evolution_chain.url);
 
       this.getPokemonsByChains([evolution.chain]);

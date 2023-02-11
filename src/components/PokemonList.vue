@@ -1,5 +1,6 @@
 <template>
   <div class="pokemons-container">
+    <div></div>
     <v-slide-group
       class="pa-4"
       center-active
@@ -15,7 +16,12 @@
             </div>
           </v-card-item>
           <v-card-actions>
-            <v-btn text class="btn" color="var(--red)" @click="expandInfo(pokemon.id)">
+            <v-btn
+              text
+              class="btn"
+              color="var(--red)"
+              @click="expandInfo(pokemon.id)"
+            >
               Ver status
             </v-btn>
           </v-card-actions>
@@ -63,7 +69,7 @@ import { usePokemonStore } from "@/stores/pokemon";
 import { mapState } from "pinia";
 
 interface Data {
-  selected: number[]
+  selected: number[];
 }
 
 export default defineComponent({
@@ -80,7 +86,7 @@ export default defineComponent({
     },
     isExpanded(id: number): boolean {
       return this.selected.includes(id);
-    }
+    },
   },
   computed: {
     ...mapState(usePokemonStore, ["pokemons"]),

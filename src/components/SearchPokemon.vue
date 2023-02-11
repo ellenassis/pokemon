@@ -24,9 +24,18 @@ export default defineComponent({
   },
   methods: {
     async onSearchPokemon() {
+      if (this.query === "") return;
       const pokemonStore = usePokemonStore();
-      await pokemonStore.getPokemons(this.query);
-      pokemonStore.pokemons = [];
+      try {
+        pokemonStore.pokemons = [];
+        await pokemonStore.getPokemons(this.query);
+
+        this.$emit('onSuccess');
+      } catch {
+        pokemonStore.pokemons = [];
+        
+        this.$emit("onError");
+      }
     },
     onKeyUp(event: KeyboardEvent) {
       if (event.key === "Enter") {
