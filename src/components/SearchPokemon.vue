@@ -6,7 +6,9 @@
       type="search"
       placeholder="Digite o nome de um pokémon..."
     />
-    <button @click="onSearchPokemon"><fa icon="search" /></button>
+    <button @click="onSearchPokemon">
+      <v-icon icon="fa:fas fa-search"></v-icon>
+    </button>
   </div>
 </template>
 
@@ -21,12 +23,13 @@ export default defineComponent({
     };
   },
   methods: {
-    onSearchPokemon() {
+    async onSearchPokemon() {
       const pokemonStore = usePokemonStore();
-      pokemonStore.getPokemon(this.query);
+      await pokemonStore.getPokemons(this.query);
+      pokemonStore.pokemons = [];
     },
     onKeyUp(event: KeyboardEvent) {
-      if (event.key === 'Enter') {
+      if (event.key === "Enter") {
         this.onSearchPokemon();
       }
     },

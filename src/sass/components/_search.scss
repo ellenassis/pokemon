@@ -1,9 +1,10 @@
 .search-container {
-  margin: 40px 0;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
 
-  input, button {
+  input,
+  button {
     background: var(--white);
     border: none;
     border-radius: 50px;
@@ -16,22 +17,22 @@
   }
 
   button {
-    padding: 15px 20px;
+    padding: 20px;
     margin-left: 15px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.455);
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
-      background: var(--light-red);
-      transition: all .5s ease-in-out;
-
-      svg {
-        color: var(--dark-gray);
-      }
+      background: var(--light);
+      transition: all 0.5s ease-in-out;
     }
 
-    svg {
+    i {
       color: var(--red);
+      font-size: 1.1rem;
     }
   }
 
