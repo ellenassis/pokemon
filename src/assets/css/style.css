@@ -3,7 +3,7 @@
   --beige: #fae3c1;
   --dark-gray: #4f4f4f;
   --red: #e92929;
-  --light-red: rgb(255, 147, 147);
+  --light: rgb(248, 248, 248);
 }
 
 * {
@@ -13,7 +13,6 @@
 }
 
 body {
-  background: var(--beige);
   color: var(--dark-gray);
 }
 

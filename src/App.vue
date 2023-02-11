@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <v-app style="background-color:var(--beige)">
     <Home />
-  </div>
+  </v-app>
 </template>
 
 <script setup lang="ts">
