@@ -1,18 +1,34 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
+interface Chain { 
+  evolves_to: Chain[], 
+  species: { url: string } 
+}
+
 interface Pokemon {
   id: number;
   name: string;
   sprites: {
     front_default: string;
   };
-  stats?: any;
-  abilities?: any;
+  stats: Array<{
+    stat: {
+      name: string;
+      id: number;
+    },
+    base_stat: number;
+  }>;
+  abilities: Array<{
+    ability: {
+      name: string;
+      id: number
+    }
+  }>;
 }
 
 interface State {
-  pokemons: Pokemon[];
+  pokemons: Array<Pokemon>;
 }
 
 export const usePokemonStore = defineStore("pokemon", {
@@ -30,7 +46,7 @@ export const usePokemonStore = defineStore("pokemon", {
 
       this.getPokemonsByChains([evolution.chain]);
     },
-    async getPokemonsByChains(chains: any) {
+    async getPokemonsByChains(chains: Chain[]) {
       if (chains.length === 0) return;
 
       for (const chain of chains) {

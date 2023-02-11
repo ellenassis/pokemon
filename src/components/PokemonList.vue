@@ -1,7 +1,6 @@
 <template>
   <div class="pokemons-container">
     <v-slide-group
-      v-model="model"
       class="pa-4"
       center-active
       show-arrows
@@ -16,26 +15,26 @@
             </div>
           </v-card-item>
           <v-card-actions>
-            <v-btn text class="btn" color="var(--red)" @click="revealStatus">
+            <v-btn text class="btn" color="var(--red)" @click="expandInfo(pokemon.id)">
               Ver status
             </v-btn>
           </v-card-actions>
 
           <v-expand-transition>
             <v-card
-              v-if="reveal"
+              v-if="isExpanded(pokemon.id)"
               class="transition-fast-in-fast-out v-card--reveal"
               style="height: 100%"
             >
               <v-card-item class="pb-0">
                 <h3 class="pokemon-name">{{ pokemon.name }}</h3>
                 <div class="pokemon-abitilies">
-                  <p v-for="poke in pokemon.abilities" :key="poke.id">
+                  <p v-for="poke in pokemon.abilities" :key="poke.ability.id">
                     {{ poke.ability.name }}
                   </p>
                 </div>
                 <div class="pokemon-stats">
-                  <p v-for="poke in pokemon.stats" :key="poke.id">
+                  <p v-for="poke in pokemon.stats" :key="poke.stat.id">
                     {{ poke.stat.name }}: <strong>{{ poke.base_stat }}</strong>
                   </p>
                 </div>
@@ -45,7 +44,7 @@
                   text
                   color="var(--red)"
                   class="btn btn-back"
-                  @click="reveal = false"
+                  @click="collapseInfo(pokemon.id)"
                 >
                   Voltar
                 </v-btn>
@@ -63,15 +62,25 @@ import { defineComponent } from "vue";
 import { usePokemonStore } from "@/stores/pokemon";
 import { mapState } from "pinia";
 
+interface Data {
+  selected: number[]
+}
+
 export default defineComponent({
-  data: () => ({
-    model: null,
-    reveal: false,
+  data: (): Data => ({
+    selected: [],
   }),
   methods: {
-    revealStatus() {
-      this.reveal = true;
+    expandInfo(id: number) {
+      this.selected.push(id);
     },
+    collapseInfo(id: number) {
+      const index = this.selected.indexOf(id);
+      this.selected.splice(index, 1);
+    },
+    isExpanded(id: number): boolean {
+      return this.selected.includes(id);
+    }
   },
   computed: {
     ...mapState(usePokemonStore, ["pokemons"]),
