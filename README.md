@@ -1,8 +1,9 @@
 # Pokemon
 
-O projeto é um website com o intuito de pesquisar pokémons e ver suas respectivas evoluções, seus status, e suas habilidades. O projeto foi desenvolvido utilizando Vue 3, TypeScript, Pinia, Vite e Vuetify.
+Projeto pessoal desenvolvido com intuito de pesquisar pokémons e ver suas respectivas evoluções, seus status, e suas habilidades. Utilizei Vue 3, TypeScript, Pinia, Vite e Vuetify.
 
 ![image](https://user-images.githubusercontent.com/54678108/218264165-dbf5afd8-5fe8-4f40-a178-f8354cf233a6.png)
+Design by Ellen Assis
 
 ## Recommended IDE Setup
 
